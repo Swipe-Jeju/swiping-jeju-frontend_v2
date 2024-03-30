@@ -1,0 +1,107 @@
+{
+  "name": "swiping-jeju",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run ingest-local && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky",
+    "cz": "cz",
+    "formatting": "prettier --write '**/*.{ts,tsx}' --ignore-unknown",
+    "ingest-local": "tsx -r dotenv/config scripts/ingest-data-local.ts"
+  },
+  "dependencies": {
+    "@langchain/community": "^0.0.36",
+    "@langchain/openai": "^0.0.19",
+    "@react-spring/web": "^9.7.3",
+    "axios": "^1.6.7",
+    "hnswlib-node": "^1.4.2",
+    "langchain": "^0.1.26",
+    "next": "^14.2.0-canary.13",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.0.1",
+    "react-kakao-maps-sdk": "^1.1.26",
+    "react-tinder-card": "^1.6.4"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "autoprefixer": "^10.0.1",
+    "clsx": "^2.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-tailwindcss": "^3.14.3",
+    "eslint-plugin-unused-imports": "^3.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "postcss": "^8",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.3.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "types": {
+        "✨ Feat": {
+          "description": "A new feature or enhancement",
+          "title": "Feature"
+        },
+        "🐛 Fix": {
+          "description": " A bug fix",
+          "title": "Bug Fix"
+        },
+        "📝 docs": {
+          "description": " Documentation changes",
+          "title": "Documentation"
+        },
+        "🎨 Style": {
+          "description": " Code style changes",
+          "title": "Code Style"
+        },
+        "♻️ Refactor": {
+          "description": "  Code refactoring",
+          "title": "Code Refactoring"
+        },
+        "✅ test": {
+          "description": "Adding or modifying tests",
+          "title": "Tests"
+        },
+        "🚀 Deploy": {
+          "description": " Deploying stuff",
+          "title": "Deploy"
+        },
+        "🔧 Chore": {
+          "description": " Other changes that don't modify src or test files",
+          "title": "Chore"
+        },
+        "⚙️ Settings": {
+          "description": "  Changing configuration files",
+          "title": "Settings"
+        }
+      }
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write '**/*.{ts,tsx}' --ignore-unknown"
+    ]
+  }
+}
