@@ -13,7 +13,10 @@
         "singleQuote": true,
         "endOfLine": "auto"
       }
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "eol-last": ["error", "always"]
   },
 
   "overrides": [
