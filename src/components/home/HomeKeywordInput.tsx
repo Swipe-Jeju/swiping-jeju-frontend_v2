@@ -91,7 +91,11 @@ const HomeKeywordInput: React.FC<HomeKeywordInputProps> = ({
   return (
     <>
       <div className="flex size-full flex-col items-center justify-center space-y-4 p-11">
-        <KeywordTitle text1="어떤" text2="장소를" text3="추천 받고 싶으세요?" />
+        <KeywordTitle
+          headText="어떤"
+          highlightText="장소를"
+          tailText="추천 받고 싶으세요?"
+        />
         <input
           type="text"
           className="w-full rounded-full border border-green-500 bg-white px-4 py-2 text-base font-medium text-gray-900"
