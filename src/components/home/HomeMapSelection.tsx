@@ -25,19 +25,40 @@ const HomeMapSelection: React.FC<I.HomeMapSelectionProps> = ({
         {/* ----------------------------TTILE ---------------------- */}
         {/* --------------------------------------------------------- */}
 
-        <KeywordTitle text1="원하는" text2="장소" text3="를 선택하세요" />
+        <KeywordTitle
+          headText="원하는"
+          highlightText="장소"
+          tailText="를 선택해주세요!"
+        />
         {/* --------------------------------------------------------- */}
         {/* ----------------------------MAP ---------------------- */}
         {/* --------------------------------------------------------- */}
-        <div className="relative flex h-64 w-full items-center justify-center">
+        <div className="relative flex h-5 w-full items-center justify-center">
           {/* --------------------click Potiner ---------------------- */}
           <div
             className="absolute cursor-pointer bg-transparent"
-            style={{ top: '35%', left: '90%', width: '30px', height: '30px' }}
+            style={{ top: '30%', left: '85%', width: '30px', height: '50px' }}
             onClick={() => toggleMapSelection(C.MAPOPTIONS[3])}
           ></div>
+          <div
+            className="absolute cursor-pointer bg-transparent"
+            style={{ top: '45%', left: '73%', width: '30px', height: '30px' }}
+            onClick={() => toggleMapSelection(C.MAPOPTIONS[4])}
+          ></div>
+
+          <div
+            className="absolute cursor-pointer bg-transparent"
+            style={{ top: '55%', left: '65%', width: '30px', height: '50px' }}
+            onClick={() => toggleMapSelection(C.MAPOPTIONS[5])}
+          ></div>
+          <div
+            className="absolute cursor-pointer bg-transparent"
+            style={{ top: '60%', left: '50%', width: '30px', height: '60px' }}
+            onClick={() => toggleMapSelection(C.MAPOPTIONS[6])}
+          ></div>
+
           {/* --------------------map Image ---------------------- */}
-          <Image src={selectedImage} alt="Selected Jeju Map" height={260} />
+          <Image src={selectedImage} alt="Selected Jeju Map" height={290} />
         </div>
         {/* --------------------------------------------------------- */}
         {/* -----------------------Choice List ---------------------- */}
@@ -46,7 +67,7 @@ const HomeMapSelection: React.FC<I.HomeMapSelectionProps> = ({
           {selectedMaps.map((selectedMap) => (
             <div
               key={selectedMap.id}
-              className={`mt-5 flex h-7 w-16 items-center justify-center border ${
+              className={`flex h-7 w-16 items-center justify-center border ${
                 selectedMap.status === 'disabled'
                   ? 'border-gray-400 bg-black'
                   : 'border-green-500 bg-[#80FFB2]'
@@ -60,7 +81,7 @@ const HomeMapSelection: React.FC<I.HomeMapSelectionProps> = ({
         {/* --------------------------------------------------------- */}
         {/* -----------------------Button List ---------------------- */}
         {/* --------------------------------------------------------- */}
-        <div className="mt-11 grid w-full grid-cols-4 gap-2.5">
+        <div className="mt-5 grid w-full grid-cols-4 gap-2.5">
           {C.MAPOPTIONS.map((map) => (
             <div
               key={map.id}
