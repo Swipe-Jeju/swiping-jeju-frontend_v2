@@ -42,12 +42,14 @@ function Home(): JSX.Element {
         <HomeMapSelection
           onNext={handleNext}
           setSwipingAlbum={setSwipingAlbum}
+          step={step}
         />
       )}
       {step === 2 && (
         <HomeKeywordInput
           swipingAlbum={swipingAlbum}
           setSwipingAlbum={setSwipingAlbum}
+          step={step}
         />
       )}
     </div>
