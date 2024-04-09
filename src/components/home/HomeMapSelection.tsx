@@ -38,7 +38,7 @@ const HomeMapSelection: React.FC<I.HomeMapSelectionProps> = ({
         {/* --------------------------------------------------------- */}
         {/* ----------------------------MAP ---------------------- */}
         {/* --------------------------------------------------------- */}
-        <div className="relative flex w-full items-center justify-center">
+        <div className="relative mt-4 flex w-full items-center justify-center">
           {/* --------------------click Potiner ---------------------- */}
           <div
             className="absolute cursor-pointer bg-transparent"

@@ -1,7 +1,7 @@
 // 프로그래스 바 컴포넌트
 export const ProgressBar: React.FC<{ step: number }> = ({ step }) => {
   return (
-    <div className="mb-2 flex w-full justify-center gap-2">
+    <div className="mb-4 flex w-full justify-center gap-2">
       {/* -------------------프로그래스 바 1단계 ---------------------- */}
       <div className="h-2 w-1/2 rounded-full bg-gray-300">
         <div
