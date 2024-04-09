@@ -36,18 +36,20 @@ function Home(): JSX.Element {
   }, []);
 
   return (
-    <div className={`mt-12 ${animate ? 'animate-fadeIn' : ''} bg-[#050014]`}>
+    <div className={`${animate ? 'animate-fadeIn' : ''} bg-[#050014]`}>
       {step === 0 && <HomeLanding onNext={handleNext} />}
       {step === 1 && (
         <HomeMapSelection
           onNext={handleNext}
           setSwipingAlbum={setSwipingAlbum}
+          step={step}
         />
       )}
       {step === 2 && (
         <HomeKeywordInput
           swipingAlbum={swipingAlbum}
           setSwipingAlbum={setSwipingAlbum}
+          step={step}
         />
       )}
     </div>

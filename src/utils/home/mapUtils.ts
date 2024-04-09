@@ -13,8 +13,5 @@ export const selectMapImage = (selectedMaps: number[]): StaticImageData => {
   // 매핑된 이미지 찾기
   const selectedMapImage = C.MAPIMAGESMAPPINGS[selectedMapIdsString];
 
-  // console.log(`선택된 지도 리스트 ${selectedMapIdsString}`);
-  // console.log(selectedMapImage);
-
   return selectedMapImage || Map0; // 기본 이미지로 Map0을 사용
 };

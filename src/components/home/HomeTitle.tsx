@@ -1,17 +1,31 @@
 import React from 'react';
 
 interface KeywordTitleProps {
-  text1: string;
-  text2: string;
-  text3: string;
+  headText: string;
+  highlightText: string;
+  tailText: string;
+  etc1?: string;
+  etc2?: string;
 }
 
-const KeywordTitle: React.FC<KeywordTitleProps> = ({ text1, text2, text3 }) => (
-  <div className="mb-4 flex w-full justify-start">
-    <h1 className="mb-3 mt-1 text-4xl font-bold text-white">
-      {text1} <span className="text-[#00FF66]">{text2}</span>
-      <br />
-      {text3}
+const KeywordTitle: React.FC<KeywordTitleProps> = ({
+  headText,
+  highlightText,
+  tailText,
+  etc1,
+  etc2,
+}) => (
+  <div className="mb-0 flex w-full justify-start">
+    <h1 className="mt-1 text-2xl font-bold text-white">
+      {headText} <span className="text-[#80FFB2]">{highlightText}</span>
+      {tailText}
+      {etc1 && (
+        <span className="text-[#80FFB2]">
+          <br />
+          {etc1}
+        </span>
+      )}
+      {etc2 && etc2}
     </h1>
   </div>
 );
