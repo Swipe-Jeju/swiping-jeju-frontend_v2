@@ -7,12 +7,14 @@ import * as I from '@/interfaces/home/home'; // 인터페이스
 import { updateSwipingAlbumAndProceed } from '@/utils/home/updateSwipingAlbumAndProceed'; // 앨범 업데이트 및 진행 함수
 
 import NextButton from '../common/NextButton';
+import { ProgressBar } from './HomeProgressbar';
 import KeywordTitle from './HomeTitle';
 
 // 지도 선택 컴포넌트
 const HomeMapSelection: React.FC<I.HomeMapSelectionProps> = ({
   onNext,
   setSwipingAlbum,
+  step,
 }) => {
   // useMapSelection 훅 사용
   // 선택된 지도 리스트, 선택된 이미지, 지도 선택 토글 함수
@@ -22,18 +24,21 @@ const HomeMapSelection: React.FC<I.HomeMapSelectionProps> = ({
     <>
       <div className="relative flex size-full flex-col items-center justify-center p-11">
         {/* --------------------------------------------------------- */}
+        {/* ----------------------------프로그래스 바 ---------------------- */}
+        {/* --------------------------------------------------------- */}
+        {ProgressBar({ step })}
+        {/* --------------------------------------------------------- */}
         {/* ----------------------------TTILE ---------------------- */}
         {/* --------------------------------------------------------- */}
-
         <KeywordTitle
           headText="원하는"
           highlightText="장소"
-          tailText="를 선택해주세요!"
+          tailText="를 선택하세요"
         />
         {/* --------------------------------------------------------- */}
         {/* ----------------------------MAP ---------------------- */}
         {/* --------------------------------------------------------- */}
-        <div className="relative flex h-5 w-full items-center justify-center">
+        <div className="relative flex w-full items-center justify-center">
           {/* --------------------click Potiner ---------------------- */}
           <div
             className="absolute cursor-pointer bg-transparent"
@@ -92,7 +97,6 @@ const HomeMapSelection: React.FC<I.HomeMapSelectionProps> = ({
             </div>
           ))}
         </div>
-
         {/* --------------------------------------------------------- */}
         {/* -----------------------Next Button ---------------------- */}
         {/* --------------------------------------------------------- */}
