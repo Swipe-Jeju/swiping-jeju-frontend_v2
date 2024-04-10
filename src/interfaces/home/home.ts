@@ -20,6 +20,7 @@ export interface MapImageMapping {
 export interface HomeMapSelectionProps {
   onNext: () => void;
   setSwipingAlbum: React.Dispatch<React.SetStateAction<SwipingAlbum>>;
+  step: number;
 }
 
 export interface MapOption {
@@ -31,6 +32,7 @@ export interface MapOption {
 export interface HomeKeywordInputProps {
   swipingAlbum: SwipingAlbum;
   setSwipingAlbum: React.Dispatch<React.SetStateAction<SwipingAlbum>>;
+  step: number;
 }
 
 // * /api/v1/cnt

@@ -7,9 +7,9 @@ interface NextButtonProps {
 
 const NextButton: React.FC<NextButtonProps> = ({ onClick, text }) => {
   return (
-    <div className="fixed inset-x-0 bottom-7 flex w-full items-center justify-center pb-4">
+    <div className="fixed inset-x-0 bottom-5 flex w-full items-center justify-center pb-4">
       <button
-        className="mx-auto h-12 w-full max-w-sm cursor-pointer rounded-lg border border-[#00FF66] bg-[#80FFB2] text-center text-base font-bold text-gray-800"
+        className="mx-10 h-12 w-full max-w-sm cursor-pointer rounded-lg border border-[#00FF66] bg-[#80FFB2] text-center text-xl font-black text-gray-800"
         onClick={onClick}
       >
         {text}
