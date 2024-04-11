@@ -83,7 +83,7 @@ const HomeKeywordInput: React.FC<HomeKeywordInputProps> = ({
     // POST /api/keywords
 
     setTimeout(() => {
-    router.push('/swiping');
+      router.push('/swiping');
     }, 3000);
 
     setIsSubmitting(false);
