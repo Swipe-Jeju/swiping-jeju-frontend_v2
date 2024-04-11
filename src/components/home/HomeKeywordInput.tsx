@@ -82,7 +82,9 @@ const HomeKeywordInput: React.FC<HomeKeywordInputProps> = ({
     // 키워드 추가
     // POST /api/keywords
 
-    router.push('/swiping');
+    setTimeout(() => {
+    router.push(`/result/${id}`);
+    }, 3000);
 
     setIsSubmitting(false);
     log('submitAlbum' + swipingAlbum);
