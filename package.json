@@ -4,20 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run ingest-local && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
     "cz": "cz",
     "formatting": "prettier --write '**/*.{ts,tsx}' --ignore-unknown",
-    "ingest-local": "tsx -r dotenv/config scripts/ingest-data-local.ts"
+    "ingest-remote": "tsx  -r dotenv/config scripts/ingest-data-remote.ts"
   },
   "dependencies": {
     "@langchain/community": "^0.0.36",
     "@langchain/openai": "^0.0.19",
     "@react-spring/web": "^9.7.3",
+    "@supabase/supabase-js": "^2.42.1",
     "axios": "^1.6.7",
-    "hnswlib-node": "^1.4.2",
     "langchain": "^0.1.26",
     "next": "^14.2.0-canary.13",
     "react": "^18",
