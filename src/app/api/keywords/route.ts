@@ -1,4 +1,3 @@
-import { HNSWLib } from '@langchain/community/vectorstores/hnswlib';
 import { StringOutputParser } from '@langchain/core/output_parsers';
 import { PromptTemplate } from '@langchain/core/prompts';
 import {
@@ -10,7 +9,7 @@ import { VectorStoreRetriever } from 'langchain/vectorstores/base';
 
 import { answerTemplate, standaloneQuestionTemplate } from '@/prompt';
 import { combineDocuments } from '@/utils/langchain/combineDocument';
-import { getLocalRetriever } from '@/utils/langchain/localRetriever';
+import { getRemoteRetriver } from '@/utils/langchain/remoteRetriever';
 import { log } from '@/utils/log';
 
 export async function POST(req: Request) {
@@ -27,8 +26,8 @@ export async function POST(req: Request) {
     maxTokens: 200,
   });
 
-  // * 로컬 리트리버를 가져옵니다.
-  const retriever = await getLocalRetriever();
+  // * 리모트 리트리버를 가져옵니다.
+  const retriever = await getRemoteRetriver();
 
   // * 독립적 질문 생성
   const standaloneQuestionChain = createStandaloneQuestionChain(llm);
@@ -71,7 +70,7 @@ function createStandaloneQuestionChain(llm: ChatOpenAI<ChatOpenAICallOptions>) {
 }
 
 // * 리트리버 체인 생성 함수
-function createRetrieverChain(retriever: VectorStoreRetriever<HNSWLib>) {
+function createRetrieverChain(retriever: VectorStoreRetriever) {
   return RunnableSequence.from([
     (prevResult) => prevResult.standalone_question,
     retriever,
