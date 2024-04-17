@@ -61,11 +61,9 @@ const HomeKeywordInput: React.FC<HomeKeywordInputProps> = ({
 
     // 상태 업데이트
     setSwipingAlbum(updatedAlbum);
-    log('submitAlbum' + swipingAlbum.mapList);
 
     // 키워드랑 지도 push 하기
-    // const keywords = await handleGetKeyword();
-    const keywords = ['바다', '맛집', '카페'];
+    const keywords = await handleGetKeyword();
 
     // 키워드 토대로 id, hotplaceList 받아오기
     const response = await getCollections({
@@ -84,7 +82,9 @@ const HomeKeywordInput: React.FC<HomeKeywordInputProps> = ({
     // 키워드 추가
     // POST /api/keywords
 
-    router.push('/swiping');
+    setTimeout(() => {
+      router.push('/swiping');
+    }, 3000);
 
     setIsSubmitting(false);
     log('submitAlbum' + swipingAlbum);
