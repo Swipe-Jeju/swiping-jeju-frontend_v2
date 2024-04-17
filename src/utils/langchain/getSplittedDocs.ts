@@ -21,7 +21,7 @@ export const getSplittedDocs = async ({
   const textSplitter = new RecursiveCharacterTextSplitter({
     chunkSize,
     chunkOverlap,
-    separators: ['\n\n', '\n', '. ', '? ', '! ', '.\n', '?\n', '!\n'],
+    separators: ['\n'],
   });
 
   // 텍스트 분할
