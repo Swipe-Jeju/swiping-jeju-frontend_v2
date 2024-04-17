@@ -3,6 +3,7 @@
 import { animate, motion } from 'framer-motion';
 import React, { MutableRefObject, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import { GrClose } from 'react-icons/gr';
 
 import SwipeCard from '@/components/swiper/SwipeCard';
 import { ICardData } from '@/interfaces/swipe';
@@ -54,6 +55,7 @@ const db: ICardData[] = [
 
 const MainPage = () => {
   const [trash, setTrash] = useState<MutableRefObject<null>[]>([]);
+
   const restoreCard = async () => {
     const lastIndex = trash.length - 1;
     animate(trash[lastIndex].current, {
@@ -108,16 +110,27 @@ const MainPage = () => {
       </button>
       <div className="flex h-[60px] w-full justify-around bg-red-50">
         <motion.div
-          className="size-10 text-black"
-          style={{ opacity: leftMotionValue * -1 }}
+          className="flex size-10 items-center justify-center bg-white p-4 text-lg text-red-400"
+          initial={{ y: -1000, opacity: 0, scale: 0 }}
+          animate={{
+            y: leftMotionValue * 100,
+            opacity: leftMotionValue * -1,
+            scale: leftMotionValue * -1,
+          }}
         >
-          <FaCheck />
+          <GrClose />
         </motion.div>
         <motion.div
-          className="size-10 text-black"
-          style={{ opacity: rightMotionValue }}
+          className="flex size-10 items-center justify-center bg-white p-4 text-green-400"
+          initial={{ y: -1000, opacity: 0, scale: 0 }}
+          animate={{
+            y: rightMotionValue * -100,
+            opacity: rightMotionValue,
+            scale: rightMotionValue,
+          }}
+          exit={{ y: -1000, opacity: 0 }}
         >
-          <FaCheck />
+          <FaCheck className="size-[16px]" />
         </motion.div>
       </div>
     </section>
