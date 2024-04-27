@@ -95,10 +95,35 @@ const MainPage = () => {
             onSwiped={swiped}
           >
             <div
-              className={`h-[500px] w-[300px] rounded-lg ${index % 2 === 0 ? 'bg-blue-100' : 'bg-green-100'}`}
+              className={`z-[10] h-[500px] w-[300px] rounded-lg ${index % 2 === 0 ? 'bg-blue-100' : 'bg-green-100'}`}
             ></div>
           </SwipeCard>
         ))}
+
+        <motion.div
+          className="absolute left-0 top-1/2 flex size-10 translate-y-[-50%] items-center justify-center rounded-full bg-white p-4 text-lg text-red-400"
+          initial={{ x: -4000, opacity: 0, scale: 0 }}
+          animate={{
+            x: leftMotionValue * -100,
+            opacity: leftMotionValue * -1,
+            scale: leftMotionValue * -1 * 1.5,
+          }}
+          exit={{ x: -4000, opacity: 0 }}
+        >
+          <GrClose />
+        </motion.div>
+        <motion.div
+          className="absolute right-0 top-1/2 flex size-10 translate-y-[-50%] items-center justify-center rounded-full bg-white p-4 text-green-400"
+          initial={{ x: 1000, opacity: 0, scale: 0 }}
+          animate={{
+            x: rightMotionValue * -100,
+            opacity: rightMotionValue,
+            scale: rightMotionValue * 1.5,
+          }}
+          exit={{ x: -4000, opacity: 0 }}
+        >
+          <FaCheck className="size-[16px]" />
+        </motion.div>
       </div>
       <button
         type="button"
@@ -108,31 +133,6 @@ const MainPage = () => {
       >
         Undo
       </button>
-      <div className="flex h-[60px] w-full justify-around bg-red-50">
-        <motion.div
-          className="flex size-10 items-center justify-center bg-white p-4 text-lg text-red-400"
-          initial={{ y: -1000, opacity: 0, scale: 0 }}
-          animate={{
-            y: leftMotionValue * 100,
-            opacity: leftMotionValue * -1,
-            scale: leftMotionValue * -1,
-          }}
-        >
-          <GrClose />
-        </motion.div>
-        <motion.div
-          className="flex size-10 items-center justify-center bg-white p-4 text-green-400"
-          initial={{ y: -1000, opacity: 0, scale: 0 }}
-          animate={{
-            y: rightMotionValue * -100,
-            opacity: rightMotionValue,
-            scale: rightMotionValue,
-          }}
-          exit={{ y: -1000, opacity: 0 }}
-        >
-          <FaCheck className="size-[16px]" />
-        </motion.div>
-      </div>
     </section>
   );
 };
